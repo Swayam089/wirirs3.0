@@ -6,12 +6,12 @@
 #calculator {
     margin-top: 5%;
     float: right;
-    width: 50%;
+    width: 30%;
     height: 66.3129973474801vh;
 }
 .child{
     display: inline-block;
-    width:50%
+    width:70%
 }
 body{
     background-color: black;
