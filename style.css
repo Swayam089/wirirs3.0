@@ -17,10 +17,14 @@
 body{
     background-color: black;
 }
-.developers{
+#mar{
     background-color: white;
-    color: black;
     font-family: 'Poppins', sans-serif;
     font-size: larger;
     color: darkred;
+}
+#thx{
+    font-family: 'Poppins', sans-serif;
+    font-size: larger;
+    color: white;   
 }
