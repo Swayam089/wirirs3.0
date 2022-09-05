@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap');
+
 .parent {
     justify-content: space-evenly;
 }
@@ -10,21 +11,30 @@
     width: 30%;
     height: 69vh;
 }
-.child{
+
+
+.child {
     display: inline-block;
-    width:70%
+    width: 70%
 }
-body{
+
+body {
     background-color: black;
 }
-#mar{
+
+#mar {
     background-color: white;
     font-family: 'Poppins', sans-serif;
     font-size: larger;
     color: darkred;
 }
-#thx{
+
+#thx {
     font-family: 'Poppins', sans-serif;
     font-size: larger;
-    color: white;   
+    color: white;
+}
+
+#converter-text {
+    color: white;
 }
