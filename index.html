@@ -81,6 +81,10 @@
                 <p style="color: white;">Select an example or insert your MathML code/text and click on 'Convert'</p>
                 <select id="examples" onchange="dsp();">
                     <option value="one">Sample 1</option>
+                    <option value="two">Sample 2</option>
+                    <option value="three">Sample 3</option>
+                    <option value="four">Sample 4</option>
+                    <option value="five">Sample 5</option>
                 </select>
                 <br />
                 <table id="converter-text">
@@ -94,6 +98,8 @@
                                 <input type="button" onclick="javascript:dsp2();" value=">>" />
                             </div>
                             <div>=================</div>
+                            <div>
+                            </div>
                         </td>
                         <td>
                             <textarea spellcheck="false" id="output" cols="32" rows="20"></textarea>
@@ -223,8 +229,8 @@
                         /<mo><\/mo>/gi, /&InvisibleTimes;/gi, /&PlusMinus;/gi, /&int;/gi,
                         /&lt;/gi, /&gt;/gi, /&ne;/gi, /&divide;/gi, /&asymp;/gi, /&le;/gi, /&ge;/gi,
                         /&prop;/gi, /&sum;/gi, /&prod;/gi, /&infin;/);
-                    var sReplaceBy = new Array("", "*", "", "-", "±",
-                        "", "*", "±", "∫",
+                    var sReplaceBy = new Array("", "·", "", "-", "±",
+                        "", "·", "±", "∫",
                         "<", ">", "≠", "÷", "≈", "≤", "≥",
                         "∝", "∑", "∏", "∞");
         
@@ -380,7 +386,7 @@
                                     var m2c = new RegExp(/@/).exec(this.mc[i + 1]);
                                     if ((m1a != null || m1b != null) &&
                                         (m2a != null || m2b != null || m2c != null)) {
-                                        this.insertOperator("*", i);
+                                        this.insertOperator(" ", i);
                                         i += 1;
                                     }
         
