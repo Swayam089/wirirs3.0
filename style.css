@@ -4,6 +4,9 @@
     justify-content: space-evenly;
 }
 
+#editorContainer{
+    height: 600px;
+}
 
 #calculator {
     margin-top: 5%;
