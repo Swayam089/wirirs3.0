@@ -1,0 +1,38 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     <html>
+       <head>
+        <link rel="shortcut icon" href="favicon.png" type="favicon-icon">
+         <script src="https://www.wiris.net/demo/editor/editor"></script>
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+         <script>
+         var editor;
+         window.onload = function () {
+           editor = com.wiris.jsEditor.JsEditor.newInstance({'language': 'en'});
+                 editor.insertInto(document.getElementById('editorContainer'));
+				  $('.wrs_formulaDisplay').css('height', '500px');
+         }
+         </script>
+         <link rel="stylesheet" href="style.css">
+       </head>
+       <body>
+        <table>
+            <tr>
+                <td><div id="editorContainer"></div></td>
+                <td>        <div id="calculator" style="float: top right; vertical-align: right top;" class="child">
+                    <script
+                        src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+                    <div id="calculator">
+                    </div></td>
+            </tr>
+        </table>
+        <script>
+            var elt = document.getElementById('calculator');
+            var calculator = Desmos.ScientificCalculator(elt);
+    // calculator.setExpression({ id: 'graph1'});
+        </script>
+        <marquee id="mar">Made by- Swayam Jain(Main Owner), Yugsinh Gharia(Secondary Owner), Himanshu Sultania (Minor
+            Editor)</marquee>
+       </body>
+     </html>
