@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+    <link rel="shortcut icon" href="favicon.png" type="favicon-icon">
+    <script src="https://www.wiris.net/demo/editor/editor"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        var editor;
+        window.onload = function () {
+            editor = com.wiris.jsEditor.JsEditor.newInstance({ 'language': 'en' });
+            editor.insertInto(document.getElementById('editorContainer'));
+            $('.wrs_formulaDisplay').css('height', '500px');
+        }
+    </script>
+    <title>PARCC 3.0</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function convertToText(mathml) {
+            // parse the MathML string into a DOM node
+            const parser = new DOMParser();
+            const mathmlNode = parser.parseFromString(mathml, "text/xml").documentElement;
+
+            // convert the MathML node to text
+            let text = "";
+            switch (mathmlNode.nodeName) {
+                case "mn":
+                    text += mathmlNode.textContent;
+                    break;
+                case "mi":
+                    text += mathmlNode.textContent;
+                    break;
+                case "mo":
+                    text += mathmlNode.textContent;
+                    break;
+                case "mfrac":
+                    text += "(" + convertToText(mathmlNode.children[0].outerHTML) + ")/(" + convertToText(mathmlNode.children[1].outerHTML) + ")";
+                    break;
+                case "msup":
+                    text += convertToText(mathmlNode.children[0].outerHTML) + "^" + convertToText(mathmlNode.children[1].outerHTML);
+                    break;
+                case "msub":
+                    text += convertToText(mathmlNode.children[0].outerHTML) + "_" + convertToText(mathmlNode.children[1].outerHTML);
+                    break;
+                case "msqrt":
+                    text += "sqrt(" + convertToText(mathmlNode.children[0].outerHTML) + ")";
+                    break;
+                case "mroot":
+                    text += "root(" + convertToText(mathmlNode.children[1].outerHTML) + ")(" + convertToText(mathmlNode.children[0].outerHTML) + ")";
+                    break;
+                default:
+                    for (let i = 0; i < mathmlNode.children.length; i++) {
+                        text += convertToText(mathmlNode.children[i].outerHTML);
+                    }
+            }
+            return text;
+        }
+    </script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <div id="editorContainer"></div>
+            </td>
+            <td>
+                <div id="calculator" style="float: top right; vertical-align: right top;" class="child">
+                    <script
+                        src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+                    <div id="calculator">
+                    </div>
+            </td>
+        </tr>
+    </table>
+    <script>
+        var elt = document.getElementById('calculator');
+        var calculator = Desmos.ScientificCalculator(elt);
+    calculator.setExpression({ id: 'graph1'});
+    </script>
+    <marquee id="mar">Made by- Swayam Jain</marquee>
+    </body>
+</html>
