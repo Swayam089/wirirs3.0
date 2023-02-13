@@ -15,48 +15,7 @@
     </script>
     <title>PARCC 3.0</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        function convertToText(mathml) {
-            // parse the MathML string into a DOM node
-            const parser = new DOMParser();
-            const mathmlNode = parser.parseFromString(mathml, "text/xml").documentElement;
-
-            // convert the MathML node to text
-            let text = "";
-            switch (mathmlNode.nodeName) {
-                case "mn":
-                    text += mathmlNode.textContent;
-                    break;
-                case "mi":
-                    text += mathmlNode.textContent;
-                    break;
-                case "mo":
-                    text += mathmlNode.textContent;
-                    break;
-                case "mfrac":
-                    text += "(" + convertToText(mathmlNode.children[0].outerHTML) + ")/(" + convertToText(mathmlNode.children[1].outerHTML) + ")";
-                    break;
-                case "msup":
-                    text += convertToText(mathmlNode.children[0].outerHTML) + "^" + convertToText(mathmlNode.children[1].outerHTML);
-                    break;
-                case "msub":
-                    text += convertToText(mathmlNode.children[0].outerHTML) + "_" + convertToText(mathmlNode.children[1].outerHTML);
-                    break;
-                case "msqrt":
-                    text += "sqrt(" + convertToText(mathmlNode.children[0].outerHTML) + ")";
-                    break;
-                case "mroot":
-                    text += "root(" + convertToText(mathmlNode.children[1].outerHTML) + ")(" + convertToText(mathmlNode.children[0].outerHTML) + ")";
-                    break;
-                default:
-                    for (let i = 0; i < mathmlNode.children.length; i++) {
-                        text += convertToText(mathmlNode.children[i].outerHTML);
-                    }
-            }
-            return text;
-        }
-    </script>
-</head>
+    </head>
 
 <body>
     <table>
