@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap');
 #editorContainer{
-    height: 600px;
-    width: 1100px;
+    height: 83.91608391608392vh;
+    width: 73.57859531772576vw;
     border-radius: 20px;
 }
 #calculator{
-    width: 375px;
-    height: 600px;
+    width: 25.08361204013378vw;
+    height: 83.91608391608392vh;
     border-radius: 20px;
 }
 body{
